@@ -17,9 +17,35 @@ programa {
 		 * real = tipo de dado para informar números com casas decimais, exemplo: preco = 35.99
 		 * vazio = tipo de dados para processar funções sem retorno de valor, exemplo, função escreva
 		*/
+		// Informações do meu pokémon
+		cadeia meu_pokemon = "Pikachu"
+		inteiro hp_meu_pokemon = 100
+		inteiro max_hp_meu_pokemon = 100
+		// Informações do pokémon inimigo
+		cadeia pokemon_inimigo = "Gengar"
+		inteiro hp_pokemon_inimigo = 120
+		inteiro max_hp_pokemon_inimigo = 120
+		/***
+		 * Operadores aritméticos
+		 * soma (+) = operador utilizado para somar 2 ou mais números
+		 * subtração (-) = operador utilizado para subtrair 2 ou mais números
+		 * multiplicação (*) = operador utilizado para multiplicar 2 ou mais números
+		 * divisão (/) = operador utilizado para dividir 2 ou mais números
+		 * módulo(%) = operador utiliza para pegar o valor do resto da divisão
+		 * Precedência dos operadores:
+		 * Os parênteses () vem primeiro que a divisão *, depois da divisão vem a 
+		 * multiplicação, depois vem a soma e por fim a subtração, exemplo:
+		 * (2 + 2) / 2 * 2 + 2 - 2
+		 */
+		inteiro dano = util.sorteia(22, 35)
+		hp_pokemon_inimigo = hp_pokemon_inimigo - dano
+		escreva("=== FICHA BATALHA ===\n")
+		escreva(meu_pokemon, " - HP: ", hp_meu_pokemon, "/", max_hp_meu_pokemon, "\n")
+		escreva(pokemon_inimigo, " - HP: ", hp_pokemon_inimigo, "/", max_hp_pokemon_inimigo, "\n")
+
 		// Definição do céu do jogo
 		graficos.definir_cor(graficos.criar_cor(150, 216, 250))
-		graficos.desenhar_retangulo(0, 0, LARGURA, 240, falso, verdadeiro)
+		graficos.desenhar_retangulo(0, 0, LARGURA, 260, falso, verdadeiro)
 		// Definição da grama do jogo
 		graficos.definir_cor(graficos.criar_cor(120, 190, 100))
 		graficos.desenhar_retangulo(0, 260, LARGURA, 240, falso, verdadeiro)
@@ -35,6 +61,10 @@ programa {
 		// Desenho do nosso pokémon
 		graficos.definir_cor(graficos.criar_cor(255, 215, 0))
 		graficos.desenhar_retangulo(180, 280, 110, 100, falso, verdadeiro)
+		// Textos dos pokémons na tela do jogo
+		graficos.definir_cor(graficos.COR_PRETO)
+		graficos.desenhar_texto(60, 55, pokemon_inimigo + " HP: " + hp_pokemon_inimigo + "/" + max_hp_pokemon_inimigo)
+		graficos.desenhar_texto(480, 372, meu_pokemon + " HP: " + hp_meu_pokemon + "/" + max_hp_meu_pokemon)
 		// Esta função é responsável por abrir a tela do jogo
 		graficos.renderizar()
 		escreva("Janela gráfica aberta! Tela criada com biblioteca de gráficos!\n")
